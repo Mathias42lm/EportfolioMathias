@@ -1,3 +1,4 @@
 # Cmd utilse : 
-```composer install```
-```symfony server:start```
+``` composer install ```
+
+``` symfony server:start ```
