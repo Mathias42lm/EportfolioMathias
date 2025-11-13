@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class HomeController extends AbstractController
 {
-    
+    // Partie du site en anglais
     #[Route('/', name: 'app_home')]
     public function index(): Response
     {
