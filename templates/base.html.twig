@@ -10,7 +10,11 @@
     <body>
         <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">Portfolio</a>
+                {% if langue == 'fr' %}
+                    <a class="navbar-brand" href="/">Portfolio</a>
+                {% else %}
+                    <a class="navbar-brand" href="/en">Portfolio</a>
+                {% endif %}
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -19,15 +23,15 @@
 
                         {% if langue == 'fr' %}
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Home
+                                <a class="nav-link" href="/base">Home
                                     <span class="visually-hidden">(current)</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Test</a>
+                                <a class="nav-link" href="/cv">CV</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
+                                <a class="nav-link" href="/contact">Contact</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Langue</a>
@@ -43,10 +47,10 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/en/base">Test</a>
+                                <a class="nav-link" href="/en/cv">CV</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/en/base">Pricing</a>
+                                <a class="nav-link" href="/en/contact">Contact</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Langue</a>
