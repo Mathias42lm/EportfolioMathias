@@ -15,6 +15,7 @@ final class HomeController extends AbstractController
         return $this->render('home/fr/homefr.html.twig', [
             'controller_name' => 'HomeController',
             'langue' => 'fr',
+
         ]);
     }
 
@@ -51,6 +52,14 @@ final class HomeController extends AbstractController
             'langue' => 'fr',
         ]);
     }
+    #[Route('/login', name: 'app_frlogin')]
+    public function loginfr(): Response
+    {
+        return $this->render('home/fr/loginfr.html.twig', [
+            'controller_name' => 'HomeController',
+            'langue' => 'fr',
+        ]);
+    }
 
     // Partie du site en anglais
 
@@ -82,6 +91,14 @@ final class HomeController extends AbstractController
     public function cven(): Response
     {
         return $this->render('home/en/cven.html.twig', [
+            'controller_name' => 'HomeController',
+            'langue' => 'en',
+        ]);
+    }
+    #[Route('/en/login', name: 'app_enlogin')]
+    public function loginen(): Response
+    {
+        return $this->render('home/en/loginen.html.twig', [
             'controller_name' => 'HomeController',
             'langue' => 'en',
         ]);
