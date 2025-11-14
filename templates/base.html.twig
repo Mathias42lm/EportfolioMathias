@@ -5,8 +5,11 @@
         <title>{% block title %}E-Portfolio Mathias{% endblock %}</title>
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('ico/ico32.ico') }}">
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('ico/ico16.ico') }}">
-
-        <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
+        {% if langue == 'fr' %}
+            <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
+        {% else %}
+            <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
+        {% endif %}
     </head>
 <body>
         <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
@@ -29,7 +32,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/login">CV</a>
+                                <a class="nav-link" href="/login">Curriculum Vitae</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/contact">Contact</a>
@@ -48,7 +51,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/en/login">CV</a>
+                                <a class="nav-link" href="/en/login">Resume</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/en/contact">Contact</a>

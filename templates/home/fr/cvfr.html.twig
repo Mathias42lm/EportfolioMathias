@@ -4,13 +4,127 @@
 <style>
   .cv-download { max-width: 720px; margin: 40px auto; padding: 20px; text-align: center; }
   .cv-download .btn { margin: 8px; padding: 10px 18px; font-size: 1rem; text-decoration: none; display: inline-block; }
+  .cv {justify-content: start;}
 </style>
+
+<div class = "cv text-primary">
+  <div>
+        <div>
+            <h1>CV Mellier Mathias</h1>
+            <p>IUT RT</p>
+            <p>Email : <a href="mailto:ton.email@example.com">ton.email@example.com</a></p>
+            <p>Téléphone : 01 23 45 67 89</p>
+            <p>Portfolio : <a href="https://ton-portfolio.com" target="_blank">https://ton-portfolio.com</a></p>
+            <p>LinkedIn : <a href="https://linkedin.com/in/ton-profile" target="_blank">https://linkedin.com/in/ton-profile</a></p>
+        </div>
+
+        <div class="cv-section">
+            <h2>Résumé professionnel</h2>
+            <p>Passionné par le développement web et les nouvelles technologies, je travaille en tant que développeur depuis 5 ans. Mon expertise se concentre sur la création d'applications web robustes et performantes en utilisant des technologies comme Symfony et React.</p>
+        </div>
+
+        <div class="cv-section">
+            <h2>Compétences clés</h2>
+            <div class="cv-subsection">
+                <h3>Compétences techniques :</h3>
+                <ul>
+                    <li>PHP, Symfony</li>
+                    <li>JavaScript, React</li>
+                    <li>MySQL, PostgreSQL</li>
+                </ul>
+            </div>
+
+            <div class="cv-subsection">
+                <h3>Compétences créatives :</h3>
+                <ul>
+                    <li>UX/UI Design</li>
+                    <li>Graphisme</li>
+                </ul>
+            </div>
+
+            <div class="cv-subsection">
+                <h3>Compétences interpersonnelles :</h3>
+                <ul>
+                    <li>Communication</li>
+                    <li>Gestion de projet</li>
+                    <li>Travail en équipe</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cv-section">
+            <h2>Expérience professionnelle</h2>
+            <div class="cv-job">
+                <h3>Entreprise A – Développeur Symfony</h3>
+                <p><strong>Dates :</strong> Janvier 2020 – Présent</p>
+                <ul>
+                    <li>Développement de nouvelles fonctionnalités sur des applications Symfony.</li>
+                    <li>Maintenance et optimisation des systèmes existants.</li>
+                </ul>
+            </div>
+            <div class="cv-job">
+                <h3>Entreprise B – Développeur Frontend</h3>
+                <p><strong>Dates :</strong> Juillet 2018 – Décembre 2019</p>
+                <ul>
+                    <li>Conception d'interfaces utilisateurs responsives.</li>
+                    <li>Collaboration avec l'équipe backend pour intégrer les API.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cv-section">
+            <h2>Projets réalisés</h2>
+            <div class="cv-project">
+                <h3>Projet A</h3>
+                <p>Application web permettant la gestion de projet avec des fonctionnalités de suivi des tâches et des équipes.</p>
+                <p><a href="https://tonportfolio.com/projet-a" target="_blank">Voir le projet</a></p>
+            </div>
+            <div class="cv-project">
+                <h3>Projet B</h3>
+                <p>Plateforme e-commerce développée en Symfony et React pour améliorer l'expérience utilisateur et la performance.</p>
+                <p><a href="https://tonportfolio.com/projet-b" target="_blank">Voir le projet</a></p>
+            </div>
+        </div>
+
+        <div class="cv-section">
+            <h2>Formation</h2>
+            <div class="cv-education">
+                <h3>Université X – Master en Informatique</h3>
+                <p><strong>Dates :</strong> Septembre 2015 – Juin 2018</p>
+            </div>
+        </div>
+
+        <div class="cv-section">
+            <h2>Certifications et Formations complémentaires</h2>
+            <ul>
+                <li>Certification Symfony – Symfony, 2020</li>
+                <li>Formation UX/UI Design – Udemy, 2021</li>
+            </ul>
+        </div>
+
+        <div class="cv-section">
+            <h2>Langues</h2>
+            <ul>
+                <li>Français : Langue maternelle</li>
+                <li>Anglais : Courant</li>
+            </ul>
+        </div>
+
+        <div class="cv-section">
+            <h2>Centres d’intérêt</h2>
+            <ul>
+                <li>Photographie</li>
+                <li>Voyages</li>
+                <li>Technologies émergentes</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 
 <div class="cv-download" role="main" aria-labelledby="cv-title">
   <h1 id="cv-title">Télécharger mon CV</h1>
   <p>Sélectionnez le format que vous souhaitez télécharger :</p>
-
-  <!-- Option A : téléchargement direct depuis public/ (simple) -->
   <div>
     <a class="btn btn-primary" href="{{ asset('cv/rick.jpg') }}" download="rick.jpg">Télécharger (PDF)</a>
     <a class="btn btn-secondary" href="{{ asset('cv/rick.jpg') }}" download="rick.jpg">Télécharger (Word .docx)</a>
