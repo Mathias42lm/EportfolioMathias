@@ -4,18 +4,19 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Routing\Attribute\Route;
 
 final class HomeController extends AbstractController
 {
-    // Partie du site en anglais
+    // Partie du site en français
     #[Route('/', name: 'app_home')]
     public function index(): Response
     {
         return $this->render('home/fr/homefr.html.twig', [
             'controller_name' => 'HomeController',
             'langue' => 'fr',
-
         ]);
     }
 
@@ -36,6 +37,7 @@ final class HomeController extends AbstractController
             'langue' => 'fr',
         ]);
     }
+
     #[Route('/cv', name: 'app_frcv')]
     public function cvfr(): Response
     {
@@ -44,6 +46,7 @@ final class HomeController extends AbstractController
             'langue' => 'fr',
         ]);
     }
+
     #[Route('/contact', name: 'app_frcontact')]
     public function contactfr(): Response
     {
@@ -52,6 +55,7 @@ final class HomeController extends AbstractController
             'langue' => 'fr',
         ]);
     }
+
     #[Route('/login', name: 'app_frlogin')]
     public function loginfr(): Response
     {
@@ -71,6 +75,7 @@ final class HomeController extends AbstractController
             'langue' => 'en',
         ]);
     }
+
     #[Route('/en/base', name: 'app_enbase')]
     public function baseen(): Response
     {
@@ -79,6 +84,7 @@ final class HomeController extends AbstractController
             'langue' => 'en',
         ]);
     }
+
     #[Route('/en/contact', name: 'app_encontact')]
     public function contacten(): Response
     {
@@ -87,6 +93,7 @@ final class HomeController extends AbstractController
             'langue' => 'en',
         ]);
     }
+
     #[Route('/en/cv', name: 'app_encv')]
     public function cven(): Response
     {
@@ -95,6 +102,7 @@ final class HomeController extends AbstractController
             'langue' => 'en',
         ]);
     }
+
     #[Route('/en/login', name: 'app_enlogin')]
     public function loginen(): Response
     {

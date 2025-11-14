@@ -1,6 +1,156 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1>Test fr</h1>
-<button type="button" class="btn btn-primary btn-lg" onclick="location.href = '/cv';">Large button</button>
+
+<style>
+    .login {
+        max-width: 420px;
+        margin: 48px auto;
+        padding: 24px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+        background: #fff;
+        text-align: left;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    .login h1 {
+        margin-bottom: 8px;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .login p.lead {
+        margin-bottom: 18px;
+        text-align: center;
+        color: #6b7280;
+    }
+    .form-group { margin-bottom: 12px; }
+    label { display: block; margin-bottom: 6px; font-weight: 600; }
+    input[type="text"],
+    input[type="email"] {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        font-size: 0.95rem;
+    }
+    .invalid { border-color: #ef4444 !important; }
+    .error { color: #ef4444; font-size: 0.85rem; margin-top: 6px; display: none; }
+    .error[aria-hidden="false"] { display: block; }
+    .actions { text-align: center; margin-top: 18px; }
+</style>
+
+<div class="login" role="main" aria-labelledby="login-title">
+    <h1 id="login-title">Login</h1>
+    <p class="lead">Veuillez renseigner votre email et votre pseudo pour continuer.</p>
+
+    <form id="loginForm" novalidate>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="votre@exemple.com"
+                aria-describedby="emailHelp emailError"
+                required
+            />
+            <div id="emailError" class="error" aria-hidden="true" role="alert"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="pseudo">Pseudo</label>
+            <input
+                id="pseudo"
+                name="pseudo"
+                type="text"
+                placeholder="Votre pseudo"
+                aria-describedby="pseudoError"
+                required
+                minlength="2"
+            />
+            <div id="pseudoError" class="error" aria-hidden="true" role="alert"></div>
+        </div>
+
+        <div class="actions">
+            <button id="loginBtn" type="submit" class="btn btn-primary">Se connecter</button>
+        </div>
+    </form>
+</div>
+
+<script>
+(function() {
+    const form = document.getElementById('loginForm');
+    const email = document.getElementById('email');
+    const pseudo = document.getElementById('pseudo');
+    const emailError = document.getElementById('emailError');
+    const pseudoError = document.getElementById('pseudoError');
+
+    // Simple email regex (good enough for client-side check)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function showError(inputEl, errEl, message) {
+        inputEl.classList.add('invalid');
+        errEl.textContent = message;
+        errEl.setAttribute('aria-hidden', 'false');
+        inputEl.setAttribute('aria-invalid', 'true');
+    }
+
+    function clearError(inputEl, errEl) {
+        inputEl.classList.remove('invalid');
+        errEl.textContent = '';
+        errEl.setAttribute('aria-hidden', 'true');
+        inputEl.removeAttribute('aria-invalid');
+    }
+
+    // Real-time validation feedback
+    email.addEventListener('input', () => {
+        clearError(email, emailError);
+        if (email.value && !emailRegex.test(email.value)) {
+            showError(email, emailError, 'Veuillez entrer une adresse email valide.');
+        }
+    });
+
+    pseudo.addEventListener('input', () => {
+        clearError(pseudo, pseudoError);
+        if (pseudo.value && pseudo.value.length < 2) {
+            showError(pseudo, pseudoError, 'Le pseudo doit contenir au moins 2 caractères.');
+        }
+    });
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // reset
+        clearError(email, emailError);
+        clearError(pseudo, pseudoError);
+
+        let valid = true;
+
+        if (!email.value.trim()) {
+            showError(email, emailError, 'L\'email est requis.');
+            valid = false;
+        } else if (!emailRegex.test(email.value.trim())) {
+            showError(email, emailError, 'Veuillez entrer une adresse email valide.');
+            valid = false;
+        }
+
+        if (!pseudo.value.trim()) {
+            showError(pseudo, pseudoError, 'Le pseudo est requis.');
+            valid = false;
+        } else if (pseudo.value.trim().length < 2) {
+            showError(pseudo, pseudoError, 'Le pseudo doit contenir au moins 2 caractères.');
+            valid = false;
+        }
+
+        if (!valid) {
+            const firstInvalid = form.querySelector('.invalid');
+            if (firstInvalid) firstInvalid.focus();
+            return;
+        }
+        window.location.href = '/cv';
+    }, false);
+})();
+</script>
+
 {% endblock %}

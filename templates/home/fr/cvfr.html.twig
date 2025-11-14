@@ -1,5 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1>Test en</h1>
+<style>
+  .cv-download { max-width: 720px; margin: 40px auto; padding: 20px; text-align: center; }
+  .cv-download .btn { margin: 8px; padding: 10px 18px; font-size: 1rem; text-decoration: none; display: inline-block; }
+</style>
+
+<div class="cv-download" role="main" aria-labelledby="cv-title">
+  <h1 id="cv-title">Télécharger mon CV</h1>
+  <p>Sélectionnez le format que vous souhaitez télécharger :</p>
+
+  <!-- Option A : téléchargement direct depuis public/ (simple) -->
+  <div>
+    <a class="btn btn-primary" href="{{ asset('cv/rick.jpg') }}" download="rick.jpg">Télécharger (PDF)</a>
+    <a class="btn btn-secondary" href="{{ asset('cv/rick.jpg') }}" download="rick.jpg">Télécharger (Word .docx)</a>
+  </div>
+
+  <hr style="margin:20px 0;" />
+</div>
 {% endblock %}

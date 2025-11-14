@@ -3,11 +3,138 @@
 {% block body %}
 
 <style>
-    .login{text-align: center; justify-content: center;}
+    .login {
+        max-width: 420px;
+        margin: 48px auto;
+        padding: 24px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+        background: #fff;
+        text-align: left;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    .login h1 {
+        margin-bottom: 8px;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .login p.lead {
+        margin-bottom: 18px;
+        text-align: center;
+        color: #6b7280;
+    }
+    .form-group { margin-bottom: 12px; }
+    label { display: block; margin-bottom: 6px; font-weight: 600; }
+    input[type="text"],
+    input[type="email"] {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        font-size: 0.95rem;
+    }
+    .invalid { border-color: #ef4444 !important; }
+    .error { color: #ef4444; font-size: 0.85rem; margin-top: 6px; display: none; }
+    .error[aria-hidden="false"] { display: block; }
+    .actions { text-align: center; margin-top: 18px; }
 </style>
-<div class="login">
-    <h1>Login</h1>
-    <p>Please set your email and your name to continue</p>
-    <button type="button" class="btn btn-primary" onclick="location.href = '/en/cv';">Login</button>
+
+<div class="login" role="main" aria-labelledby="login-title">
+    <h1 id="login-title">Login</h1>
+    <p class="lead">Please provide your email and username to continue.</p>
+
+    <form id="loginForm" novalidate>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" aria-describedby="emailHelp emailError" required/>
+            <div id="emailError" class="error" aria-hidden="true" role="alert"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" placeholder="Your username" aria-describedby="usernameError" required minlength="2"/>
+            <div id="usernameError" class="error" aria-hidden="true" role="alert"></div>
+        </div>
+
+        <div class="actions">
+            <button id="loginBtn" type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </form>
 </div>
+
+<script>
+    (function() {
+        const form = document.getElementById('loginForm');
+        const email = document.getElementById('email');
+        const username = document.getElementById('username');
+        const emailError = document.getElementById('emailError');
+        const usernameError = document.getElementById('usernameError');
+
+        // Simple email regex for client-side validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        function showError(inputEl, errEl, message) {
+            inputEl.classList.add('invalid');
+            errEl.textContent = message;
+            errEl.setAttribute('aria-hidden', 'false');
+            inputEl.setAttribute('aria-invalid', 'true');
+        }
+
+        function clearError(inputEl, errEl) {
+            inputEl.classList.remove('invalid');
+            errEl.textContent = '';
+            errEl.setAttribute('aria-hidden', 'true');
+            inputEl.removeAttribute('aria-invalid');
+        }
+
+        // Live validation feedback
+        email.addEventListener('input', () => {
+            clearError(email, emailError);
+            if (email.value && !emailRegex.test(email.value)) {
+                showError(email, emailError, 'Please enter a valid email address.');
+            }
+        });
+
+        username.addEventListener('input', () => {
+            clearError(username, usernameError);
+            if (username.value && username.value.length < 2) {
+                showError(username, usernameError, 'Username must be at least 2 characters.');
+            }
+        });
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            clearError(email, emailError);
+            clearError(username, usernameError);
+
+            let valid = true;
+
+            if (!email.value.trim()) {
+                showError(email, emailError, 'Email is required.');
+                valid = false;
+            } else if (!emailRegex.test(email.value.trim())) {
+                showError(email, emailError, 'Please enter a valid email address.');
+                valid = false;
+            }
+
+            if (!username.value.trim()) {
+                showError(username, usernameError, 'Username is required.');
+                valid = false;
+            } else if (username.value.trim().length < 2) {
+                showError(username, usernameError, 'Username must be at least 2 characters.');
+                valid = false;
+            }
+
+            if (!valid) {
+                const firstInvalid = form.querySelector('.invalid');
+                if (firstInvalid) firstInvalid.focus();
+                return;
+            }
+            window.location.href = '/en/cv';
+        }, false);
+    })();
+</script>
+
 {% endblock %}
