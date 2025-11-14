@@ -96,9 +96,9 @@ php bin/phpunit
 │   ├── Entity/         # Entités Doctrine
 │   └── Repository/     # Repositories
 ├── templates/          # Templates Twig
-│   ├── Home/           # Base of templates
+│   └── Home/           # Base of templates
 │       ├── en/         # Loc of en files
-│       ├── fr/         # Loc of fr files
+│       └── fr/         # Loc of fr files
 ├── tests/              # Tests unitaires et fonctionnels
 └── var/                # Fichiers générés (cache, logs)
 ```
