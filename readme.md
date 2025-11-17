@@ -8,8 +8,6 @@ Avant de commencer, assurez-vous d'avoir installé sur votre machine :
 - PHP 8.2 ou supérieur
 - Composer
 - Symfony CLI
-- PostgreSQL 16
-- Docker et Docker Compose (optionnel, pour la base de données)
 
 ## Installation
 
@@ -20,34 +18,6 @@ composer install
 ```
 
 ### 2. Configuration de l'environnement
-Copiez le fichier `.env` et configurez vos variables d'environnement :
-```bash
-cp .env .env.local
-```
-
-Modifiez le fichier `.env.local` selon vos besoins, notamment la connexion à la base de données.
-
-### 3. Base de données
-
-#### Option A : Utilisation de Docker (recommandé)
-Démarrez la base de données PostgreSQL avec Docker Compose :
-```bash
-docker compose up -d
-```
-
-#### Option B : PostgreSQL local
-Si vous utilisez une installation locale de PostgreSQL, assurez-vous que le service est démarré et mettez à jour la variable `DATABASE_URL` dans votre fichier `.env.local`.
-
-### 4. Création de la base de données
-Créez la base de données :
-```bash
-php bin/console doctrine:database:create
-```
-
-Exécutez les migrations pour créer le schéma :
-```bash
-php bin/console doctrine:migrations:migrate
-```
 
 ## Démarrage du serveur
 
@@ -66,24 +36,9 @@ http://127.0.0.1:8000
 
 ### Développement
 - Vider le cache : `php bin/console cache:clear`
-- Créer une migration : `php bin/console make:migration`
 - Créer un contrôleur : `php bin/console make:controller`
 - Créer une entité : `php bin/console make:entity`
 
-### Base de données
-- Voir le statut des migrations : `php bin/console doctrine:migrations:status`
-- Réinitialiser la base de données : `php bin/console doctrine:database:drop --force && php bin/console doctrine:database:create && php bin/console doctrine:migrations:migrate`
-
-### Docker
-- Arrêter les services : `docker compose down`
-- Voir les logs : `docker compose logs -f`
-- Redémarrer les services : `docker compose restart`
-
-## Tests
-Exécutez les tests avec PHPUnit :
-```bash
-php bin/phpunit
-```
 
 ## Structure du projet
 ```
