@@ -55,7 +55,7 @@ http://127.0.0.1:8000
 │       ├── en/         # Loc of en files
 │       └── fr/         # Loc of fr files
 ├── tests/              # Tests unitaires et fonctionnels
-└── var/                # Fichiers générés (cache, logs)
+└── var/                # Fichiers générés (cache, logs) (ignored when pushed)
 ```
 
 ## Contribution
