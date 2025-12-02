@@ -19,10 +19,10 @@ final class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/fr', name: 'app_frhome')]
-    public function homefr(): Response
+    #[Route('/photofr', name: 'app_frphoto')]
+    public function photofr(): Response
     {
-        return $this->render('home/fr/homefr.html.twig', [
+        return $this->render('home/fr/photofr.html.twig', [
             'langue' => 'fr',
         ]);
     }
