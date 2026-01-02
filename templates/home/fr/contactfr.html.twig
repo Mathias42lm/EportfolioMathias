@@ -1,5 +1,69 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Contact{% endblock %}
+
 {% block body %}
-<h1>Test en</h1>
+<section class="container py-5">
+    <div class="row g-5">
+        
+        <div class="col-lg-5">
+            <h1 class="display-5 fw-bold mb-4">Parlons de votre <span class="text-primary">projet</span>.</h1>
+            <p class="lead text-muted mb-5">
+                Je suis actuellement ouvert à de nouvelles opportunités et collaborations. 
+                N'hésitez pas à me contacter via le formulaire ou sur mes réseaux sociaux.
+            </p>
+
+            <div class="mb-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="btn btn-primary btn-sm rounded-circle me-3"><i class="bi bi-geo-alt"></i></div>
+                    <span>Basé à Paris, France (Disponible en télétravail)</span>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <div class="btn btn-primary btn-sm rounded-circle me-3"><i class="bi bi-envelope"></i></div>
+                    <span>hello@tondomaine.fr</span>
+                </div>
+            </div>
+
+            <hr class="my-5 w-25">
+
+            <h5 class="mb-3">Mes réseaux</h5>
+            <div class="d-flex gap-3">
+                <a href="#" class="btn btn-outline-dark btn-sm shadow-sm">LinkedIn</a>
+                <a href="#" class="btn btn-outline-dark btn-sm shadow-sm">GitHub</a>
+                <a href="#" class="btn btn-outline-dark btn-sm shadow-sm">Twitter / X</a>
+            </div>
+        </div>
+
+        <div class="col-lg-7">
+            <div class="card border-0 shadow-lg p-4 p-md-5">
+                <form action="#" method="post">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Votre nom</label>
+                            <input type="text" class="form-control form-control-lg bg-light" placeholder="Ex: Marc Durand" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Email</label>
+                            <input type="email" class="form-control form-control-lg bg-light" placeholder="marc@exemple.com" required>
+                        </div>
+                        <div class="col-12 mt-4">
+                            <label class="form-label fw-semibold">Objet du message</label>
+                            <input type="text" class="form-control form-control-lg bg-light" placeholder="Ex: Proposition de mission Freelance">
+                        </div>
+                        <div class="col-12 mt-4">
+                            <label class="form-label fw-semibold">Votre message</label>
+                            <textarea class="form-control form-control-lg bg-light" rows="6" placeholder="Décrivez brièvement votre besoin..." required></textarea>
+                        </div>
+                        <div class="col-12 mt-4 d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg py-3 fw-bold shadow">
+                                Envoyer le message 🚀
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
 {% endblock %}

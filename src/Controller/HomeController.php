@@ -69,14 +69,6 @@ final class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/en/base', name: 'app_enbase')]
-    public function baseen(): Response
-    {
-        return $this->render('home/en/baseen.html.twig', [
-            'langue' => 'en',
-        ]);
-    }
-
     #[Route('/en/contact', name: 'app_encontact')]
     public function contacten(): Response
     {
@@ -97,6 +89,13 @@ final class HomeController extends AbstractController
     public function loginen(): Response
     {
         return $this->render('home/en/loginen.html.twig', [
+            'langue' => 'en',
+        ]);
+    }
+    #[Route('/en/photo', name: 'app_enphoto')]
+    public function photoen(): Response
+    {
+        return $this->render('home/en/photoen.html.twig', [
             'langue' => 'en',
         ]);
     }
