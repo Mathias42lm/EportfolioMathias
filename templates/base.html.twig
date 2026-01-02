@@ -5,11 +5,14 @@
         <title>{% block title %}E-Portfolio Mathias{% endblock %}</title>
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('ico/ico32.ico') }}">
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('ico/ico16.ico') }}">
-        {% if langue == 'fr' %}
-            <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
+        {% if theme == 'dark' %}
+            <link rel="stylesheet" href="https://bootswatch.com/5/slate/bootstrap.min.css">
+        {% elseif theme == 'fun' %}
+           <link rel="stylesheet" href="https://bootswatch.com/5/vapor/bootstrap.min.css">
         {% else %}
-            <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
+           <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
         {% endif %}
+        {% block stylesheets %}{% endblock %}
     </head>
 <body>
         <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
@@ -44,6 +47,18 @@
                                     <a class="dropdown-item" href="/en">EN</a>
                                 </div>
                             </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Thème</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="{{ path('app_change_theme', {theme: 'light'}) }}">Clair</a>
+                                    <a class="dropdown-item" href="{{ path('app_change_theme', {theme: 'dark'}) }}">Sombre</a>
+                                    <!--PArtie Modif en direct 
+                                    <a class="dropdown-item" href="{{ path('app_change_theme', {theme: 'fun'}) }}">FUN</a>
+                                    -->
+                                </div>
+                            </li>
+
+
                         {% else %}
                             <li class="nav-item">
                                 <a class="nav-link" href="/en/photo">To learn more about me
@@ -60,7 +75,18 @@
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Langue</a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="/">FR</a>
-                                    <a class="dropdown-item" href="/en">EN</a>
+                                    <a class="dropdown-item" href="/en">EN</a> 
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Theme</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="{{ path('app_change_theme', {theme: 'light'}) }}">Light</a>
+                                    <a class="dropdown-item" href="{{ path('app_change_theme', {theme: 'dark'}) }}">Dark</a>
+
+                                    <!--PArtie Modif en direct 
+                                    <a class="dropdown-item" href="{{ path('app_change_theme', {theme: 'fun'}) }}">FUN</a>
+                                    -->
                                 </div>
                             </li>
                         {% endif %}
@@ -114,7 +140,7 @@
                     <hr class="border-light opacity-25">
 
                     <div class="d-md-flex justify-content-between align-items-center small text-white-50">
-                        <div>© {{ "now"|date("Y") }} Ton Nom. Tous droits réservés.</div>
+                        <div>© {{ "now"|date("Y") }} MELLIER Mathias. Tous droits réservés.</div>
                         <div>
                         <a class="text-white-50 me-2" href="#">Politique de confidentialité</a>
                         <a class="text-white-50" href="#">Mentions légales</a>
@@ -161,7 +187,7 @@
                     <hr class="border-light opacity-25">
 
                     <div class="d-md-flex justify-content-between align-items-center small text-white-50">
-                        <div>© {{ "now"|date("Y") }} Your Name. All rights reserved.</div>
+                        <div>© {{ "now"|date("Y") }} MELLIER Mathias. All rights reserved.</div>
                         <div>
                         <a class="text-white-50 me-2" href="#">Privacy Policy</a>
                         <a class="text-white-50" href="#">Legal Notice</a>

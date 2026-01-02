@@ -1,4 +1,86 @@
 {% extends 'base.html.twig' %}
+
+{% block title %}Mes Centres d'Intérêt - Mathias Mellier{% endblock %}
+
 {% block body %}
-<h1>test fr</h1>
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold">Au-delà des <span class="text-primary">Réseaux</span></h1>
+        <p class="lead text-muted mx-auto" style="max-width: 700px;">
+            Passionné par la technologie et les défis personnels. Voici ce qui occupe mon esprit quand je ne suis pas devant un terminal.
+        </p>
+    </div>
+
+    <div class="row g-4">
+        
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&q=80&w=800" 
+                     class="card-img-top" style="height: 250px; object-fit: cover;" alt="Hardware & PC Building">
+                <div class="card-body">
+                    <h5 class="fw-bold">Montage PC & Hardware</h5>
+                    <p class="card-text text-muted">
+                        J'aime comprendre l'architecture des machines. Monter et optimiser des configurations hardware me permet de rester proche de la couche physique des systèmes informatiques.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?auto=format&fit=crop&q=80&w=800" 
+                     class="card-img-top" style="height: 250px; object-fit: cover;" alt="Escalade">
+                <div class="card-body">
+                    <h5 class="fw-bold">Escalade & Bloc</h5>
+                    <p class="card-text text-muted">
+                        L'escalade est pour moi une école de la patience et de la réflexion. Chaque voie est un puzzle à résoudre, demandant à la fois de la technique, de la concentration et une analyse précise du terrain.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&q=80&w=800" 
+                     class="card-img-top" style="height: 250px; object-fit: cover;" alt="Voyage">
+                <div class="card-body">
+                    <h5 class="fw-bold">Voyages & Découvertes</h5>
+                    <p class="card-text text-muted">
+                        Partir à la découverte de nouveaux environnements est essentiel pour nourrir ma curiosité et garder une ouverture d'esprit face aux défis de demain.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="card border-0 shadow-sm overflow-hidden bg-light">
+                <div class="row g-0 align-items-center">
+                    <div class="col-md-4">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800" 
+                             class="img-fluid rounded-start" style="height: 200px; width: 100%; object-fit: cover;" alt="Veille Techno">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold">Culture Numérique & Veille</h5>
+                            <p class="text-muted mb-0">
+                                Je consacre une partie de mon temps libre à la veille technologique : suivre les évolutions de l'open-source, les nouvelles failles de sécurité et l'actualité du monde de l'IT.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+</style>
 {% endblock %}
