@@ -16,8 +16,8 @@ final class HomeController extends AbstractController
         return $request->getSession()->get('theme', 'light');
     }
     
-    // Partie du site en français
-
+    
+    //Route de base en français
     #[Route('/', name: 'app_home')]
     public function index(Request $request): Response
     {
@@ -27,6 +27,7 @@ final class HomeController extends AbstractController
         ]);
     }
 
+    // Changement de thème
     #[Route('/theme/{theme}', name: 'app_change_theme', requirements: ['theme' => 'light|dark|fun'])]
     public function changeTheme(Request $request, string $theme): Response
     {
@@ -35,6 +36,7 @@ final class HomeController extends AbstractController
         return $this->redirect($referer ?: '/');
     }
 
+    // Partie du site en français
     #[Route('/photofr', name: 'app_frphoto')]
     public function photofr(Request $request): Response
     {
