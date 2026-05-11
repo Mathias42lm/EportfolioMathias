@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h2 class="display-5 text-warning">Programmation & Traitement de Données</h2>
+            <p class="lead text-muted">Développement d'un analyseur de trames réseau en Python (Projet SAE05)</p>
+        </div>
+    </div>
+
+    <div class="card border-warning mb-4 shadow-sm">
+        <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
+            <h4 class="mb-0 h5"><i class="bi bi-terminal me-2"></i>AC13.01 : Utiliser un système informatique et ses outils</h4>
+            <span class="badge bg-dark text-white">Git & Environnement</span>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                Le développement et le déploiement de l'outil ont nécessité l'exploitation rigoureuse de l'environnement système et des outils de versioning.
+            </p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>Gestion de versions (Git/GitHub) :</strong> Le code source est hébergé et versionné sur le dépôt distant <code>Mathias42lm/SAE05_mathias</code>. Utilisation de la commande <code>git clone</code> documentée pour assurer un déploiement fluide.
+                </li>
+                <li class="list-group-item">
+                    <strong>Automatisation :</strong> Le script <code>lunch.py</code> intègre le téléchargement automatique des dépendances lors de la première exécution, assurant la portabilité sur tout environnement Python.
+                </li>
+                <li class="list-group-item">
+                    <strong>Interfaces :</strong> Programme exécutable en CLI permettant d'instancier une interface graphique de sélection de fichiers (TCPDump) et de paramètres (DNS).
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card border-dark mb-4 shadow-sm">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0 h5"><i class="bi bi-code-slash me-2"></i>AC13.02 : Lire, exécuter, corriger et modifier un programme</h4>
+            <span class="badge bg-warning text-dark">Python & Algorithmique</span>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                La création de l'analyseur a imposé une structuration logique du code Python, de l'ingestion brute jusqu'au rendu serveur sur le port 5000.
+            </p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>Flux d'exécution :</strong> Pipeline précis incluant le parsing des trames, l'application de filtres conditionnels, et le lancement d'un serveur web Flask/local.
+                </li>
+                <li class="list-group-item">
+                    <strong>Débogage réseau :</strong> Ajustement des algorithmes de parsing pour extraire correctement le Top 10 des IP et compiler le volume des drapeaux TCP (SYN, ACK, FIN) sans erreur sur les paquets malformés.
+                </li>
+                <li class="list-group-item">
+                    <strong>Modularité :</strong> Séparation claire de la logique de traitement en arrière-plan (backend) et de la présentation (frontend dynamique).
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card border-secondary mb-4 shadow-sm">
+        <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0 h5"><i class="bi bi-database me-2"></i>AC13.05 : Choisir les mécanismes de gestion de données</h4>
+            <span class="badge bg-light text-secondary">Data & Export CSV</span>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                L'enjeu technique majeur était de transformer un flux de données réseau brut en informations structurées, persistantes et exploitables par différents formats.
+            </p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>Interopérabilité CSV :</strong> L'export des données filtrées s'effectue au format CSV, choisi pour sa légèreté et sa compatibilité immédiate avec des tableurs (Excel) ou d'autres scripts d'analyse.
+                </li>
+                <li class="list-group-item">
+                    <strong>Extraction sélective :</strong> Isolation des métriques spécifiques (adresses, protocoles) depuis un dump volumineux pour optimiser la mémoire de l'application.
+                </li>
+                <li class="list-group-item">
+                    <strong>Rendu multicible :</strong> Génération simultanée d'un rapport statique en Markdown et d'un tableau de bord web affichant des données agrégées (graphiques circulaires de répartition, tableaux triés), adapté à une supervision humaine rapide.
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

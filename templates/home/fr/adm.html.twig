@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h2 class="display-5">Intégration SAE 2.01</h2>
+            <p class="lead text-muted">Conception, adressage et déploiement d'une infrastructure réseau multi-sites.</p>
+        </div>
+    </div>
+
+    <div class="card border-primary mb-4 shadow-sm">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0 h5">AC11.02 : Comprendre l'architecture et les fondements numériques</h4>
+            <span class="badge bg-light text-primary">Codage & Routage</span>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                La conception du réseau exigeait une parfaite maîtrise du système binaire pour structurer un espace d'adressage complet à partir d'un préfixe de classe B privé (<code>172.16.0.0/16</code>), capable de supporter près de 3000 hôtes simultanés répartis géographiquement.
+            </p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>Optimisation VLSM :</strong> Découpage en Variable Length Subnet Mask pour adapter la taille des sous-réseaux aux besoins réels (ex: un bloc /23 pour les VLANs de formation, un bloc /28 pour les liens inter-routeurs), limitant la perte d'adresses.
+                </li>
+                <li class="list-group-item">
+                    <strong>Automatisation Python :</strong> Développement d'un script utilisant le module <code>ipaddress</code>. Le programme parse la topologie via un fichier JSON, calcule mathématiquement les subnets pour éviter les chevauchements, et exporte le plan d'adressage.
+                </li>
+                <li class="list-group-item">
+                    <strong>Routage Dynamique & NAT :</strong> Déploiement du protocole RIPv2 dans le cœur de réseau. En bordure, configuration du NAT Overload (PAT) via <code>ip nat inside/outside</code> pour l'accès au WAN FAI.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card border-success mb-4 shadow-sm">
+        <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0 h5">AC11.03 : Configurer les fonctions de base du réseau local</h4>
+            <span class="badge bg-light text-success">Cisco CLI & Switching</span>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                Le maquettage logique et physique sur des équipements Cisco (Switchs 2960, Routeurs 1941) nécessitait la configuration fine des couches L2 et L3.
+            </p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>Segmentation L2 (VLANs & Trunks) :</strong> Création de domaines isolés (Administration, Services, Formations, Enseignants). Interconnexions configurées en mode <code>TRUNK</code> avec encapsulation 802.1Q.
+                </li>
+                <li class="list-group-item">
+                    <strong>Routage Inter-VLAN :</strong> Déploiement de l'architecture "Router-on-a-stick" avec des sous-interfaces logiques. Ajout d'agents de relais DHCP (<code>ip helper-address</code>) pour router les requêtes de broadcast.
+                </li>
+                <li class="list-group-item">
+                    <strong>Filtrage (ACL étendues) :</strong> Sécurisation des flux inter-VLANs. Application de règles strictes (ex: <code>permit tcp any any eq 80</code>) isolant le trafic étudiant tout en autorisant l'accès aux serveurs web et TFTP.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card border-info mb-4 shadow-sm">
+        <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0 h5">AC11.04 : Maîtriser l'administration des OS et services</h4>
+            <span class="badge bg-light text-info">Windows Server & Services</span>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                Installation et administration des services centralisés d'infrastructure sur un environnement OS serveur dédié, permettant l'autonomie et l'exploitabilité du réseau.
+            </p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>OS Serveur :</strong> Déploiement d'une machine virtuelle Windows Server 2022 et paramétrage des stratégies de pare-feu.
+                </li>
+                <li class="list-group-item">
+                    <strong>Service DHCP :</strong> Configuration de multiples étendues correspondant au script d'adressage. Définition des options de serveur (Passerelle, Serveur DNS) pour l'attribution dynamique des baux.
+                </li>
+                <li class="list-group-item">
+                    <strong>Service DNS & Web (IIS) :</strong> Création des zones de recherche directe (records A, CNAME). Déploiement du rôle <i>Internet Information Services</i> pour héberger le site informatif institutionnel, rendu accessible à l'ensemble du réseau inter-sites.
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
