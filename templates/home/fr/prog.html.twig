@@ -1,6 +1,5 @@
 {% extends 'base.html.twig' %}
 
-
 {% block body %}
 <div class="container mt-5">
     <div class="row mb-4">
@@ -57,23 +56,23 @@
     </div>
 
     <div class="card border-secondary mb-4 shadow-sm">
-        <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
-            <h4 class="mb-0 h5"><i class="bi bi-database me-2"></i>AC13.05 : Choisir les mécanismes de gestion de données</h4>
-            <span class="badge bg-light text-secondary">Data & Export CSV</span>
+        <div class="card-header bg-info text-dark d-flex justify-content-between align-items-center">
+            <h4 class="mb-0 h5"><i class="bi bi-chat-dots me-2"></i>AC13.05 : Choisir les mécanismes de gestion de données adaptés au développement de l’outil et argumenter ses choix</h4>
+            <span class="badge bg-dark text-white">Data & Export CSV</span>
         </div>
         <div class="card-body">
             <p class="card-text">
-                L'enjeu technique majeur était de transformer un flux de données réseau brut en informations structurées, persistantes et exploitables par différents formats.
+                L'enjeu technique majeur était de transformer un flux volumineux de données réseau brutes en informations structurées et exploitables.
             </p>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                    <strong>Interopérabilité CSV :</strong> L'export des données filtrées s'effectue au format CSV, choisi pour sa légèreté et sa compatibilité immédiate avec des tableurs (Excel) ou d'autres scripts d'analyse.
+                    <strong>Choix du format CSV & Résolution DNS :</strong> Le format CSV a été retenu pour son interopérabilité (lecture sous Excel pour audit). L'ajout d'une option de résolution DNS au moment de l'export permet d'adapter la précision de la donnée selon le besoin de l'administrateur réseau.
                 </li>
                 <li class="list-group-item">
-                    <strong>Extraction sélective :</strong> Isolation des métriques spécifiques (adresses, protocoles) depuis un dump volumineux pour optimiser la mémoire de l'application.
+                    <strong>Optimisation des structures (Argumentation) :</strong> Plutôt qu'une base de données lourde (SQL), l'utilisation de dictionnaires Python en mémoire a été choisie pour garantir une vitesse de traitement maximale lors du parsing en temps réel du fichier TCPDump.
                 </li>
                 <li class="list-group-item">
-                    <strong>Rendu multicible :</strong> Génération simultanée d'un rapport statique en Markdown et d'un tableau de bord web affichant des données agrégées (graphiques circulaires de répartition, tableaux triés), adapté à une supervision humaine rapide.
+                    <strong>Persistance et Visualisation :</strong> Persistance via des rapports <strong>Markdown</strong> pour l'archivage, couplée à une visualisation dynamique via un <strong>Dashboard Web</strong> (graphiques circulaires, compteurs de drapeaux) pour une prise de décision rapide.
                 </li>
             </ul>
         </div>

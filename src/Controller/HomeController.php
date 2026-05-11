@@ -54,7 +54,14 @@ final class HomeController extends AbstractController
             'theme' => $this->getTheme($request),
         ]);
     }
-
+    #[Route('/conn', name: 'app_conn')]
+    public function conn(Request $request): Response
+    {
+        return $this->render('home/fr/connecter.html.twig', [
+            'langue' => 'fr',
+            'theme' => $this->getTheme($request),
+        ]);
+    }
     #[Route('/adm', name: 'app_adm')]
     public function adm(Request $request): Response
     {

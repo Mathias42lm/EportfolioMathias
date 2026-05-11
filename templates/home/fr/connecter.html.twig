@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h2 class="display-5 text-primary">Compétence : Connecter</h2>
+            <p class="lead text-muted">Connecter les entreprises et les usagers : de la physique du signal à la communication client.</p>
+        </div>
+    </div>
+
+    <div class="card border-primary mb-4 shadow-sm">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0 h5"><i class="bi bi-broadcast me-2"></i>AC12.02 : Caractériser des systèmes de transmissions élémentaires et découvrir la modélisation mathématique de leur fonctionnement</h4>
+            <span class="badge bg-light text-primary">Signaux & Mathématiques</span>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                La mise en place d'une infrastructure réseau nécessite de comprendre les contraintes physiques des supports et de modéliser mathématiquement le transport de l'information.
+            </p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>Analyse Spectrale :</strong> Application des outils mathématiques (Séries de Fourier) pour décomposer les signaux périodiques et étudier l'occupation spectrale sur les canaux de transmission.
+                </li>
+                <li class="list-group-item">
+                    <strong>Supports de transmission :</strong> Caractérisation des milieux physiques (paires torsadées, fibre optique). Calcul de l'atténuation et application du théorème de Shannon pour justifier les limites de débit binaire.
+                </li>
+                <li class="list-group-item">
+                    <strong>Modélisation :</strong> Utilisation de modèles mathématiques pour simuler la propagation du signal et anticiper les phénomènes de distorsion et de bruit.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card border-info mb-4 shadow-sm">
+        <div class="card-header bg-info text-dark d-flex justify-content-between align-items-center">
+            <h4 class="mb-0 h5"><i class="bi bi-chat-dots me-2"></i>AC12.05 : Communiquer avec un tiers (client, collaborateur...) et adapter son discours et sa langue à son interlocuteur</h4>
+            <span class="badge bg-dark text-white">Pitch & Rapport Technique</span>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                La compétence "Connecter" inclut la capacité à transmettre des solutions techniques à un public non expert (clients, décideurs) via une communication structurée.
+            </p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>Soutenance et Pitch :</strong> Présentation orale d'un projet d'entreprise en adaptant le vocabulaire technique pour le rendre accessible tout en restant précis sur les indicateurs de performance.
+                </li>
+                <li class="list-group-item">
+                    <strong>Livrables Écrits :</strong> Rédaction d'un rapport professionnel structuré (analyse du besoin, cœur de cible démographique, retombées marketing) servant d'appui à la décision.
+                </li>
+                <li class="list-group-item">
+                    <strong>Supports Visuels :</strong> Conception d'un diaporama moderne intégrant des graphiques de données pour illustrer l'évolution et les objectifs d'une infrastructure.
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
